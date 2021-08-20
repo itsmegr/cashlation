@@ -1,0 +1,11 @@
+POST http://localhost:5000/translate HTTP/1.1
+content-type: application/json
+
+{
+    "text": "my name is khan",
+    "from": "en",
+    "to" : "hi"
+}
+
+
+
