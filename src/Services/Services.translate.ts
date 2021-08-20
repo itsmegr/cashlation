@@ -44,7 +44,7 @@ async function translateService(
         reqData.to,
         translatedResult.text
       );
-      console.log("caching is done");
+      // console.log("caching is done");
 
       return;
     } catch (error) {

@@ -17,7 +17,7 @@ const postTranslate: RouteHandler = async (req, res, next) => {
     console.log(reqData);
 
     let resData = await translateService(reqData);
-    console.log("response has been send");
+    // console.log("response has been send");
     res.json(resData);
   } catch (error) {
     console.log(error);
