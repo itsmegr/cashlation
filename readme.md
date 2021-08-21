@@ -1,6 +1,6 @@
 # Translation Caching Api
 
-###Features
+### Features
 - a **RESTful API** to translate a text from one language to another.
 - Used **google translate Api** as translation service.
 - Implemented **caching** in order to avoid repeated hits to the translation API
@@ -21,7 +21,7 @@
 `docker-compose -f docker-compose.yml -f docker-compose.prod.yml up`
 
 ------------
-###Endpoints
+### Endpoints
 1 '/translate'
     POST http://localhost:3000/translate HTTP/1.1
     content-type: application/json
@@ -61,8 +61,8 @@ some example of ISO code{
 
 
 
-###DB schema
-```javascript
+### DB schema
+``` javascript
 const TEXT_TABLE = {
   name: "text_table",
   atrr: {
