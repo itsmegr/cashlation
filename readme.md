@@ -23,9 +23,10 @@
 ------------
 ### Endpoints
 1 '/translate'
-    POST http://localhost:3000/translate HTTP/1.1
-    content-type: application/json
-    
+
+`POST http://localhost:3000/translate HTTP/1.1
+content-type: application/json`
+
     Body
     {
         "text":"It has so long to see you.",
