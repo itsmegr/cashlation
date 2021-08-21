@@ -23,10 +23,9 @@
 ------------
 ### Endpoints
 1 '/translate'
-
 `POST http://localhost:3000/translate HTTP/1.1
 content-type: application/json`
-
+    
     Body
     {
         "text":"It has so long to see you.",
@@ -80,9 +79,16 @@ const TRANSLATION_TABLE = {
     attr3: "translation",
   },
 };
-
-
 ```
+
+## Testing
+[Testing video link](https://drive.google.com/file/d/16oj-p8GK7GUx0eUqcUc6zFTGTj-WG9IC/view?usp=sharing "Testing video link")
+ - Please have a look at response time
+
+## Smart pre-caching
+- For smart pre Caching, there are group of languages like (hindi, telugu, marathi) so whenenver user wants the translation of any language , to any of them, than server will also cache the translation in remaining languages of group
+- we can add any group number of group
+
 
 
 
