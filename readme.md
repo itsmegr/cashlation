@@ -62,6 +62,8 @@ some example of ISO code{
 
 
 ### DB schema
+- Value inside the attr indicates the attributes inside the table
+- name is name of table
 ``` javascript
 const TEXT_TABLE = {
   name: "text_table",
