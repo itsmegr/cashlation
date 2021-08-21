@@ -2,7 +2,7 @@ POST http://localhost:3000/translate HTTP/1.1
 content-type: application/json
 
 {
-    "text":"It has so long to see you.",
+    "text":"Himanshu lived in a small village in the south of Poland.",
     "from": "en",
     "to" : "hi"
 }
