@@ -3,7 +3,7 @@ services:
   node-app :
     build: .
     ports: 
-      - "5000:3000"
+      - "3000:3000"
     environment: 
       - PORT=3000
   postgres:

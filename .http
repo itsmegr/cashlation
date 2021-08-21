@@ -1,8 +1,8 @@
-POST http://localhost:5000/translate HTTP/1.1
+POST http://localhost:3000/translate HTTP/1.1
 content-type: application/json
 
 {
-    "text": "this is me",
+    "text":"It has so long to see you.",
     "from": "en",
     "to" : "hi"
 }

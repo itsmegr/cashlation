@@ -7,9 +7,12 @@ import {
   TranslatedResponse,
 } from "../Interfaces/Interfaces.all";
 
+const preCachingGroups : Array<Array<string>> = [["hi", "mr", "te"]];
+
 /*
 contains core logic of the application
 */
+//main function, that is exposed to controller
 async function translateService(
   reqData: IPostRequestData
 ): Promise<TranslatedResponse> {
@@ -44,6 +47,7 @@ async function translateService(
         reqData.to,
         translatedResult.text
       );
+      await cacheGroupTranslation(rowData as number, reqData.text, reqData.from, reqData.to);
       // console.log("caching is done");
 
       return;
@@ -82,6 +86,46 @@ async function searchInCache(
       return reject(makeError(InternalServerError));
     }
   });
+}
+
+
+async function cacheGroupTranslation(textId : number,text : string, from :string, to : string) :Promise<void> {
+  return new Promise<void>(async(resolve, reject)=>{
+    try {
+      //find the group of language
+      let index : number = -1;
+      for(let i = 0 ;i < preCachingGroups.length ; i++){
+        let tempIndex = preCachingGroups[i].indexOf(to);
+        if(tempIndex > -1){
+          index = i;
+          break;
+        }
+      }
+      //no group for such translation
+      if(index === -1){
+        return resolve();
+      }
+
+      //there is group for such translation, so cache for all other translation
+      const dbObj = new CacheDB();
+      let mainAraay : Array<string> = preCachingGroups[index];
+      for (const toLang of mainAraay){
+        if(toLang === to){
+          //means already cached
+          continue;
+        }
+        //getting the translation
+        let translatedResult: TranslatedResponse = await translateToGivenLanguage(text, from, toLang);
+        //caching translation
+        await dbObj.cacheTranslation(textId, toLang, translatedResult.text)
+      }
+
+
+    } catch (error) {
+      console.log(error);
+      reject(error);
+    }
+  })
 }
 
 export { translateService };
