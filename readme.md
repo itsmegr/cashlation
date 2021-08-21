@@ -87,7 +87,7 @@ const TRANSLATION_TABLE = {
 
 ## Smart pre-caching
 - For smart pre Caching, there are group of languages like (hindi, telugu, marathi) so whenenver user wants the translation of any language , to any of them, than server will also cache the translation in remaining languages of group
-- we can add any group number of group
+- we can add any group number of groups
 
 
 
